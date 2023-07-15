@@ -22,7 +22,7 @@ class _botones extends State<botones> {
                   CupertinoButton(
                       child: Image.asset('././images/conejo.jpeg', width: 60),
                       onPressed: () {
-                        Navigator.pushReplacementNamed(context, 'rutalogin');
+                        Navigator.pushReplacementNamed(context, 'salud');
                       })
                 ],
               ),

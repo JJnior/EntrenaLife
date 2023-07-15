@@ -1,6 +1,10 @@
 import 'package:entrenalife/screens/LoginScreen.dart';
 import 'package:entrenalife/screens/barra.dart';
+import 'package:entrenalife/screens/barra2.dart';
+import 'package:entrenalife/screens/plan.dart';
 import 'package:entrenalife/screens/principal.dart';
+import 'package:entrenalife/screens/salud.dart';
+import 'package:entrenalife/screens/versebien.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -8,7 +12,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,7 +22,11 @@ class MyApp extends StatelessWidget {
       routes: {
         "rutalogin": (_) => LoginScreen(),
         "principal": (_) => principal(),
-        "barra": (_) => barra()
+        "barra": (_) => barra(),
+        "versebien": (_) => versebien(),
+        "salud": (_) => plansalud(),
+        "plan": (_) => plan(),
+        "barra2": (_) => barra2(),
       },
     );
   }

@@ -37,100 +37,67 @@ class _barra extends State<barra> {
 
   @override
   Widget build(BuildContext context) {
-    return /* MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        appBarTheme: AppBarTheme(
-          color: Colors.transparent,
-          elevation: 0,
-        ),
-      ),
-      home: Scaffold(
-        appBar: AppBar(
-          actions: [
-            IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.arrow_back),
-              color: Colors.black,
+    return Scaffold(
+      body: Container(
+        child: Column(
+          children: <Widget>[
+            botones(),
+            Container(
+              child: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      height: 300,
+                      child: Image.asset(images[currentIndex]),
+                    )
+                  ],
+                ),
+              ),
             ),
-            Spacer(
-              flex: 15,
+            Container(
+              child: const Text(
+                'TU PROGRESO',
+                style: TextStyle(
+                    color: Colors.black,
+                    decoration: TextDecoration.none,
+                    fontSize: 20),
+              ),
             ),
-            IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.person),
-              color: Colors.black,
-            ),
-            Spacer(
-              flex: 15,
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.person),
-              color: Colors.black,
-            ),
+            Container(
+                height: 150,
+                child: Padding(
+                    padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                    child: Column(children: [
+                      FAProgressBar(
+                        currentValue: _currentValue,
+                        backgroundColor: Colors.blueGrey,
+                        progressColor: Colors.blue,
+                      ),
+                      Spacer(),
+                    ]))),
+            Container(
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    minimumSize: Size(250, 60),
+                    backgroundColor: Colors.green,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0))),
+                child: const Text(
+                  'CONTINUAR',
+                  style: TextStyle(color: Colors.white),
+                ),
+                onPressed: () {
+                  incrementVariable();
+                  setState(() {
+                    currentIndex = (currentIndex + 1) % images.length;
+                  });
+                },
+              ),
+            )
           ],
         ),
-        body: */
-        Container(
-      child: Column(
-        children: <Widget>[
-          botones(),
-          Container(
-            child: SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    height: 300,
-                    child: Image.asset(images[currentIndex]),
-                  )
-                ],
-              ),
-            ),
-          ),
-          Container(
-            child: const Text(
-              'TU PROGRESO',
-              style: TextStyle(
-                  color: Colors.black,
-                  decoration: TextDecoration.none,
-                  fontSize: 20),
-            ),
-          ),
-          Container(
-              height: 150,
-              child: Padding(
-                  padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
-                  child: Column(children: [
-                    FAProgressBar(
-                      currentValue: _currentValue,
-                      backgroundColor: Colors.blueGrey,
-                      progressColor: Colors.blue,
-                    ),
-                    Spacer(),
-                  ]))),
-          Container(
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  minimumSize: Size(250, 60),
-                  backgroundColor: Colors.green,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0))),
-              child: const Text(
-                'CONTINUAR',
-                style: TextStyle(color: Colors.white),
-              ),
-              onPressed: () {
-                incrementVariable();
-                setState(() {
-                  currentIndex = (currentIndex + 1) % images.length;
-                });
-              },
-            ),
-          )
-        ],
       ),
     );
   }

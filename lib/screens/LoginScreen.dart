@@ -235,7 +235,7 @@ class _LoginScreen extends State<LoginScreen> {
                 ),
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
-                    Navigator.pushReplacementNamed(context, 'barra');
+                    Navigator.pushReplacementNamed(context, 'plan');
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                       content: Text('faltan credenciales'),
